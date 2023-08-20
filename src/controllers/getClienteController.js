@@ -9,7 +9,7 @@ export default class GetClientesController {
         const cliente = await databaseFactory.findCliente(id)
         if (cliente) {
             const selo = await databaseFactory.findSelo(cliente.seloid) 
-            cliente.selo = selo
+            cliente.seloperfil = selo
 
             const trilhasCliente = await databaseFactory.findTrilhasCliente(id)
             const trihasQuery = await trilhasCliente.map(async trilha => {
@@ -17,6 +17,13 @@ export default class GetClientesController {
             })
             const resultTrilhas = await Promise.all(trihasQuery)
             cliente.trilhas = resultTrilhas
+
+            const selosCliente = await databaseFactory.findSelosCliente(id)
+            const selosQuery = await selosCliente.map(async selo => {
+                return await databaseFactory.findSelo(selo.seloid)
+            })
+            const resultSelos = await Promise.all(selosQuery)
+            cliente.selos = resultSelos
         }
 
 

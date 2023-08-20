@@ -44,5 +44,14 @@ export default class DatabaseService {
         return result
     }
 
+    async findSelosCliente(id) {
+        const result = await this.prismaClient.selocliente.findMany({
+            where: {
+                clientid: id
+            }
+        })
+        return result
+    }
+
 
 }
