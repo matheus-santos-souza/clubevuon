@@ -82,6 +82,7 @@ model Oferta {
   pontos    Int
   fotourl   String?   
   exclusiva Boolean   @default(false)
+  clienteid       String   @default("0")
 
   @@map("oferta")
 }
