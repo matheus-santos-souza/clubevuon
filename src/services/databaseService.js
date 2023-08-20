@@ -16,4 +16,33 @@ export default class DatabaseService {
         })
         return result
     }
+
+    async findSelo(id) {
+        const result = await this.prismaClient.selo.findUnique({
+            where: {
+                id: id
+            }
+        })
+        return result
+    }
+
+    async findTrilhasCliente(id) {
+        const result = await this.prismaClient.trilhacliente.findMany({
+            where: {
+                clientid: id
+            }
+        })
+        return result
+    }
+
+    async findTrilha(id) {
+        const result = await this.prismaClient.trilha.findUnique({
+            where: {
+                id: id
+            }
+        })
+        return result
+    }
+
+
 }
