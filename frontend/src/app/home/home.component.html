@@ -15,17 +15,7 @@
       </div>
     </div>
     <div class="v15_5117">
-      <div class="v15_5118">
-        <div class="v15_5119">
-          <div class="v15_5120">
-            <div class="v15_5121">
-              <div class="v15_5122"></div>
-            </div>
-            <span class="v15_5123">Pontuação</span>
-          </div>
-        </div>
-        <div class="v15_5124"><span class="v15_5125">12.988 pts</span></div>
-      </div>
+      <span style="color: aliceblue; font-weight: bold;">{{this.cliente.pontos}} pts</span>
       <div class="v15_5126">
         <div class="v15_5127">
           <div class="v15_5128">
@@ -46,6 +36,7 @@
         </div>
       </div>
     </div>
+
     <div *ngFor="let trilha of this.cliente.trilhas">
       <a  class="v15_5193" [routerLink]="'/trilha/'+trilha.id">
         <div >
