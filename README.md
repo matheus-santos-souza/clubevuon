@@ -10,3 +10,5 @@ Clube VUON
 # Iniciar banco sqlite
 `npx prisma db push`
 
+# Iniciar studio 
+`npx prisma studio`
