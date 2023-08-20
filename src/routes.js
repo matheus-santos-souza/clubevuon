@@ -1,11 +1,11 @@
 import { Router } from "express";
-import GetRespostaController from "./controllers/getRespostaController.js";
+import GetClienteController from './controllers/getClienteController.js'
 
 const router = Router()
 
-router.post(
-   "/perguntar", 
-   new GetRespostaController().handle
+router.get(
+   "/cliente/:id", 
+   new GetClienteController().handle
 )
 
 export { router }

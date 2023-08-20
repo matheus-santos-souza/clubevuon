@@ -1,9 +1,9 @@
-import MongoService from "../services/mongoService.js"
+import DatabaseService from "../services/databaseService.js"
 import prismaClient from './../repository/prisma/index.js'
 
-export default class MongoFactory {
+export default class DatabaseFactory {
     static createInstance() {
-        const mongoService = new MongoService(prismaClient)
+        const mongoService = new DatabaseService(prismaClient)
         return mongoService
     }
 }
