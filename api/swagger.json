@@ -1,0 +1,359 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "IA - CHATBOT",
+    "description": "API IA - CHATBOT",
+    "version": "1.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/base": {
+      "post": {
+        "description": "Pergunte qualquer pergunta sobre as politicas da empresa.",
+        "parameters": [
+          {
+            "name": "Pergunta",
+            "in": "body",
+            "description": "Perguntar qualquer pergunta sobre as politicas da empresa",
+            "schema": {
+              "$ref": "#/definitions/Perguntar"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Pergunta respondida",
+            "schema": {
+              "$ref": "#/definitions/Resposta"
+            }
+          }
+        }
+      }
+    },
+    "/perguntar/banco": {
+      "post": {
+        "description": "Pergunte qualquer pergunta sobre o banco de dados da empresa.",
+        "parameters": [
+          {
+            "name": "Pergunta Banco de dados",
+            "in": "body",
+            "description": "Pergunte qualquer pergunta sobre o banco de dados da empresa.",
+            "schema": {
+              "$ref": "#/definitions/Perguntar"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Pergunta respondida",
+            "schema": {
+              "$ref": "#/definitions/Resposta"
+            }
+          }
+        }
+      }
+    },
+    "/intencao": {
+      "post": {
+        "description": "Identifica a Intenção",
+        "parameters": [
+          {
+            "name": "Intenção",
+            "in": "body",
+            "description": "Identifica a Intenção",
+            "schema": {
+              "$ref": "#/definitions/PerguntaIntencao"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Pergunta respondida",
+            "schema": {
+              "$ref": "#/definitions/Resposta"
+            }
+          }
+        }
+      }
+    },
+    "/mongo/create/intent": {
+      "post": {
+        "description": "Insere Intenções no mongoDB",
+        "parameters": [
+          {
+            "name": "Insere Intenção",
+            "in": "body",
+            "description": "Insere intenções no mongoDB",
+            "schema": {
+              "$ref": "#/definitions/Intencao"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Intenções inseridas",
+            "schema": {
+              "$ref": "#/definitions/Intencao"
+            }
+          }
+        }
+      }
+    },
+    "/redis/create/intent": {
+      "post": {
+        "description": "Insere Intenções no REDIS",
+        "responses": {
+          "200": {
+            "description": "Intenções inseridas no REDIS"
+          }
+        }
+      }
+    },
+    "/mongo/create/document": {
+      "post": {
+        "description": "Insere Documento no mongoDB",
+        "parameters": [
+          {
+            "name": "Insere Intenção",
+            "in": "body",
+            "description": "Insere Documento no mongoDB",
+            "schema": {
+              "$ref": "#/definitions/Documento"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Documento inserido",
+            "schema": {
+              "$ref": "#/definitions/Documento"
+            }
+          }
+        }
+      }
+    },
+    "/redis/create/document": {
+      "post": {
+        "description": "Insere documento no REDIS",
+        "responses": {
+          "200": {
+            "description": "documento inserido no REDIS"
+          }
+        }
+      }
+    },
+    "/redis/create/banco": {
+      "post": {
+        "description": "Insere banco no REDIS",
+        "responses": {
+          "200": {
+            "description": "banco inserido no REDIS"
+          }
+        }
+      }
+    },
+    "/mongo/create/pergunta": {
+      "post": {
+        "description": "Insere pergunta e resposta no mongoDB",
+        "parameters": [
+          {
+            "name": "Insere Intenção",
+            "in": "body",
+            "description": "Insere pergunta e resposta no mongoDB",
+            "schema": {
+              "$ref": "#/definitions/Pergunta"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Pergunta inserida",
+            "schema": {
+              "$ref": "#/definitions/Pergunta"
+            }
+          }
+        }
+      }
+    },
+    "/redis/create/pergunta": {
+      "post": {
+        "description": "Insere pergunta no REDIS",
+        "responses": {
+          "200": {
+            "description": "pergunta inserida no REDIS"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Perguntar": {
+      "required": ["messages", "topK"],
+      "properties": {
+        "messages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string"
+              },
+              "content": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "topK": {
+          "type": "number"
+        },
+        "tags": {
+          "type": "string"
+        }
+      }
+    },
+    "PerguntaIntencao": {
+      "required": ["input"],
+      "properties": {
+        "input": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "string"
+        }
+      }
+    },
+    "Resposta": {
+      "properties": {
+        "pergunta": {
+          "type": "string"
+        },
+        "redis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "prompt": {
+          "type": "string"
+        },
+        "resposta": {
+          "type": "object"
+        }
+      }
+    },
+    "Intencao": {
+      "required": ["topicos"],
+      "properties": {
+        "topicos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "string"
+              },
+              "embedding": {
+                "type": "array",
+                "items": {
+                  "type": "float"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Documento": {
+      "required": ["topicos"],
+      "properties": {
+        "titulo": {
+          "type": "string"
+        },
+        "cigla": {
+          "type": "string"
+        },
+        "revisao": {
+          "type": "string"
+        },
+        "index": {
+          "type": "string"
+        },
+        "topicos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "embedding": {
+                "type": "array",
+                "items": {
+                  "type": "float"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Pergunta": {
+      "required": ["perguntas"],
+      "properties": {
+        "perguntas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "pergunta": {
+                "type": "string"
+              },
+              "resposta": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "string"
+              },
+              "embedding": {
+                "type": "array",
+                "items": {
+                  "type": "float"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

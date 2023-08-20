@@ -1,0 +1,65 @@
+
+  <div class="v15_5094">
+    <div class="v15_5095" style="background: none !important;">
+      <img style="background: none !important;" [src]="this.cliente.seloperfil.capafotourl" alt="" srcset="">
+    </div>
+    <div class="v15_5097">
+      <div class="v15_5098"><span class="v15_5099">9:41</span></div>
+      <div class="v15_5100">
+        <div class="v15_5101">
+          <div class="name"></div>
+          <div class="v15_5107"></div>
+        </div>
+        <div class="name"></div>
+        <div class="name"></div>
+      </div>
+    </div>
+    <div class="v15_5117">
+      <div class="v15_5118">
+        <div class="v15_5119">
+          <div class="v15_5120">
+            <div class="v15_5121">
+              <div class="v15_5122"></div>
+            </div>
+            <span class="v15_5123">Pontuação</span>
+          </div>
+        </div>
+        <div class="v15_5124"><span class="v15_5125">12.988 pts</span></div>
+      </div>
+      <div class="v15_5126">
+        <div class="v15_5127">
+          <div class="v15_5128">
+            <div class="v15_5129">
+              <div class="v15_5130">
+                <img class="v15_5130" [src]="this.cliente.seloperfil.fotourl" alt="" srcset="">
+              </div>
+            </div>
+            <span class="v15_5147"
+              style="margin-left: 10px; margin-top: 0px;">Parabéns, {{this.cliente.nome}} você é {{this.cliente.seloperfil.titulo}}!</span
+            >
+          </div>
+        </div>
+        <div class="v15_5148">
+          <img class="v15_5149" [src]="this.cliente.fotourl">
+            <div class="v15_5150"></div>
+        />
+        </div>
+      </div>
+    </div>
+    <div *ngFor="let trilha of this.cliente.trilhas">
+      <div  class="v15_5193">
+        <div >
+          <img  class="v15_5194" [src]="trilha.fotourl" alt="" srcset="">
+        </div>
+        <div class="v15_5212">
+
+              <span class="v15_5215">{{trilha.titulo}}</span
+              ><span class="v15_5216"
+                >{{trilha.descricao}}</span
+              >
+
+        </div>
+      </div>
+    </div>
+  </div>
+
