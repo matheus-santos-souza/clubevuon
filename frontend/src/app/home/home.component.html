@@ -47,7 +47,7 @@
       </div>
     </div>
     <div *ngFor="let trilha of this.cliente.trilhas">
-      <div  class="v15_5193">
+      <a  class="v15_5193" [routerLink]="'/trilha/'+trilha.id">
         <div >
           <img  class="v15_5194" [src]="trilha.fotourl" alt="" srcset="">
         </div>
@@ -59,7 +59,7 @@
               >
 
         </div>
-      </div>
+      </a>
     </div>
   </div>
 

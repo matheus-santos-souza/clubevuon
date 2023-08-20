@@ -4,11 +4,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
+import { TrilhaComponent } from './trilha/trilha.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    TrilhaComponent
   ],
   imports: [
     BrowserModule,

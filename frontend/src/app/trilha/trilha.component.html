@@ -1,0 +1,81 @@
+<div class="v15_5446">
+  <div class="v15_5447">
+    <div class="v15_5448"><span class="v15_5449">9:41</span></div>
+    <div class="v15_5450">
+      <div class="v15_5451">
+        <div class="name"></div>
+        <div class="v15_5457"></div>
+      </div>
+      <div class="name"></div>
+      <div class="name"></div>
+    </div>
+  </div>
+  <div class="v15_5467">
+    <div class="v15_5468">
+      <div class="v15_5469"><div class="v15_5470"></div></div>
+      <div class="v15_5471">
+        <span class="v15_5472">clube</span>
+        <div class="v15_5473"></div>
+      </div>
+    </div>
+  </div>
+  <div class="v15_5474">
+    <div >
+      <img class="v15_5475" [src]="this.trilha.selo.fotourl" alt="" srcset="">
+    </div>
+    <div class="v15_5494">
+      <span class="v15_5495">{{this.trilha.titulo}}</span
+      ><span class="v15_5496"
+        >{{this.trilha.descricao}}</span
+      >
+    </div>
+  </div>
+  <div class="v15_5497">
+    <span class="v15_5498">Total de pontos acumulados</span
+    ><span class="v15_5499">400 pts</span>
+  </div>
+  <div class="v15_5500">
+    <div class="v15_5501">
+      <div class="v15_5502">
+        <div class="v15_5503">
+          <div class="v15_5504"></div>
+          <div class="v15_5505"></div>
+        </div>
+      </div>
+      <div class="v15_5506">
+        <span class="v15_5507">Missão do dia</span>
+      </div>
+    </div>
+    <span class="v15_5508">2/10</span>
+  </div>
+  <div style="margin-top: 100px;"></div>
+  <div *ngFor="let missao of this.trilha.missoes" >
+    <a  class="v15_5193">
+      <div >
+        <img  class="v15_5194" [src]="missao.fotourl" alt="" srcset="">
+      </div>
+      <div class="v15_5212">
+
+            <span class="v15_5215">{{missao.titulo}}</span
+            >
+            <div class="v15_5580"><span class="v15_5581">{{missao.pontos}} pts</span></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="v15_5630" >
+    <div class="v15_5631">
+      <div class="v15_5632">
+        <div class="v15_5633">
+
+            <img  class="v15_5633" [src]="this.trilha.selo.fotourl" alt="" srcset="">
+
+        </div>
+        <span class="v15_5652"
+          >Ao cumprir todas as missões você recebe o selo {{this.trilha.selo.titulo}}!</span
+        >
+      </div>
+    </div>
+  </div>
+  <div class="v15_5653"><span class="v15_5654">Voltar</span></div>
+</div>

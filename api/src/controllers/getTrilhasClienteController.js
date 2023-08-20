@@ -6,8 +6,14 @@ export default class GetTrilhasClienteController {
         const databaseFactory = DatabaseFactory.createInstance()
         const id = request.params.id
 
-        const result = await databaseFactory.findTrilhasCliente(id)
-        
-        return response.json(result)
+        const trilha = await databaseFactory.findTrilha(id)
+        const seloTrilha = await databaseFactory.findSelo(trilha.seloid)
+        trilha.selo = seloTrilha
+
+        const missoes = await databaseFactory.findMissaoTrilha(id)
+        trilha.missoes = missoes
+        return response.json(trilha)
     }  
 }
+
+//bit.my.hackapastas

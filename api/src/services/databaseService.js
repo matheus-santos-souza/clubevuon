@@ -53,5 +53,14 @@ export default class DatabaseService {
         return result
     }
 
+    async findMissaoTrilha(id) {
+        const result = await this.prismaClient.missao.findMany({
+            where: {
+                trilaid: id
+            }
+        })
+        return result
+    }
+
 
 }

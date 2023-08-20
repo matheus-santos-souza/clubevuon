@@ -19,4 +19,13 @@ export class ClienteService {
       }
     );
   }
+
+  getTrilha(id: string): Observable<HttpResponse<any>> {
+    return this.http.get<any>(
+      BASE_API_URL + '/trilha/' + id,
+      {
+        observe: 'response',
+      }
+    );
+  }
 }
