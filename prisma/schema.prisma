@@ -31,8 +31,9 @@ model Selo {
 }
 
 model Selocliente {
-  clientid    String    @id
-  seloid      String?
+  id          String    @id @default(uuid())
+  clientid    String    
+  seloid      String?   
   @@map("selocliente")
 }
 
@@ -49,7 +50,8 @@ model Trilha {
 }
 
 model Trilhacliente {
-  clientid        String    @id
+  id          String    @id @default(uuid())
+  clientid        String   
   trilhaid        String?
 
   @@map("trilhacliente")
@@ -61,12 +63,14 @@ model Missao {
   pontos    Int
   fotourl   String?   
   trilaid   String?
+  ean       String? @default("0")
 
   @@map("missao")
 }
 
 model Missaocliente {
-  clientid        String    @id
+  id          String    @id @default(uuid())
+  clientid        String  
   missaoid        String?
 
   @@map("missaocliente")
